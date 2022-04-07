@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   resources :events
   resources :users
   # route to test your configuration
