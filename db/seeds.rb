@@ -38,7 +38,13 @@ n_events.times do
     startdatetime = Faker::Time.between_dates(from: Date.today - 90, to: Date.today + 21, period: :evening) #=> "2014-09-19 20:21:03 -0700"
     enddatetime = startdatetime + [3600, 4500, 5400, 6300, 7200, 8100, 9000, 9900, 10800].sample
 
-    Event.create(user_id: 1, title: title, description: nil, start: startdatetime, end: enddatetime, tags: nil, location: address, notes: nil)
+
+    if Event.count == 0 
+        Event.create(user_id: 1, title: title, description: nil, start: startdatetime, end: enddatetime, tags: nil, location: address, notes: nil)
+    else 
+        duplicate = Event.select {|a| a.title == title}
+        duplicate == [] ? Event.create(user_id: 1, title: title, description: nil, start: startdatetime, end: enddatetime, tags: nil, location: address, notes: nil) : nil
+    end
 end
 
 puts "👥🗓 Seeding ContactEvents (join table)..."
