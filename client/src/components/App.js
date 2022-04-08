@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from './NavBar';
 import Events from './Events';
+import Contacts from './Contacts';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           </Route>
           <Route path="/contacts">
             <h1>Contacts</h1>
+            <Contacts />
           </Route>
           <Route path="/">
             <h1>ENDURE</h1>

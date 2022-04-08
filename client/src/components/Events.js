@@ -10,6 +10,8 @@ function Events() {
             .then((data) => setEvents(data));
     }, []);
 
+    console.log(events);
+
     return (
         <>
             {events.map(event =>
