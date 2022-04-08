@@ -13,7 +13,7 @@ n_contacts.times do
     last_name = Faker::Name.last_name
     address = Faker::Address.full_address
     bd = Faker::Date.birthday(min_age: 18, max_age: 70)
-    email = first_name + "@" + domains.sample
+    email = first_name + "." + last_name + "@" + domains.sample
 
     Contact.create(user_id: 1, first_name: first_name, last_name: last_name, avatar: nil, address: address, tags: nil, gender: gender, birthday: bd, email: email)
 end 
@@ -25,7 +25,7 @@ n_events = 150
 n_events.times do
 
     restaurant = Faker::Restaurant.name
-    cuisine = Faker::Restaurant.type
+    cuisine = "#{Faker::Restaurant.type} food"
     movie = Faker::Movie.title
     concert = "#{Faker::Music.band} concert"
     musical = Faker::Show.adult_musical
