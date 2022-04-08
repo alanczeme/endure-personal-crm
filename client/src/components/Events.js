@@ -10,11 +10,13 @@ function Events() {
             .then((data) => setEvents(data));
     }, []);
 
-
-
     return (
         <>
-            {events.map(event =>  <div key={event.id}><li>{event.title}</li></div> )}
+            {events.map(event =>
+                <div key={event.id}>
+                    <li>{event.title}</li>
+                </div>
+            )}
         </>
     )
 }

@@ -24,7 +24,7 @@ n_events = 150
 
 n_events.times do
 
-    restaurant = Faker::Restaurant.name
+    restaurant = "#{Faker::Restaurant.name} restaurant"
     cuisine = "#{Faker::Restaurant.type} food"
     movie = "#{Faker::Movie.title} movie"
     concert = "#{Faker::Music.band} concert"
