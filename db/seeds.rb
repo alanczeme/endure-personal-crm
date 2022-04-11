@@ -26,12 +26,14 @@ n_events.times do
 
     restaurant = "#{Faker::Restaurant.name} restaurant"
     cuisine = "#{Faker::Restaurant.type} food"
-    movie = "#{Faker::Movie.title} movie"
-    concert = "#{Faker::Music.band} concert"
+    movie = "Watch #{Faker::Movie.title} movie"
+    concert = "Attend #{Faker::Music.band} concert"
     musical = "#{Faker::Show.adult_musical} musical"
     play = "#{Faker::Show.play} show"
+    teamname = "Watch the #{Faker::Team.name} game"
+    sport = "Play #{Faker::Team.sport}"
 
-    title = [restaurant, cuisine, movie, concert, musical, play].sample
+    title = [restaurant, cuisine, movie, concert, musical, play, teamname, sport].sample
 
     address = Faker::Address.full_address
 

@@ -11,16 +11,16 @@ function App() {
       <div className="App">
         <NavBar />
         <Switch>
-          <Route path="/events">
+          <Route path="/event">
             <h1>Events</h1>
             <Events />
           </Route>
-          <Route path="/contacts">
+          <Route path="/contact">
             <h1>Contacts</h1>
             <Contacts />
           </Route>
           <Route path="/">
-            <h1>ENDURE</h1>
+            {/* <h1>ENDURE</h1> */}
             <h3>Your Personal CRM</h3>
           </Route>
         </Switch>
