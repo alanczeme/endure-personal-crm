@@ -1,25 +1,27 @@
 import React from 'react'
-import { Navbar, Nav, NavItem, NavDropdown, Accordion } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavItem, NavDropdown, Accordion } from 'react-bootstrap';
 
 function NavBar() {
   return (
-    <Navbar className="navbar">
-      {/* <Navbar.Header>
-        <Navbar.Brand>
-          <a href="#">React-Bootstrap</a>
-        </Navbar.Brand>
-      </Navbar.Header> */}
-      <Nav>
-        <span className="navbar-brand mb-0">Logo</span>
-        <NavItem href="#">Link</NavItem>
-        <NavItem href="#">Link</NavItem>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <Accordion>Action</Accordion>
-          <Accordion>Another action</Accordion>
-          <Accordion>Something else here</Accordion>
-          <Accordion>Separated link</Accordion>
-        </NavDropdown>
-      </Nav>
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="/">LOGO</Navbar.Brand>
+  
+        <Navbar.Toggle aria-controls="basic-navbar-nav " />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/event">Events</Nav.Link>
+            <Nav.Link href="/contact">Contacts</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
     </Navbar>
   );
 };

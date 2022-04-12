@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import { Table } from 'react-bootstrap';
+import moment from 'moment';
 
 function Contacts() {
     const [contacts, setContacts] = useState([]);
@@ -18,26 +20,29 @@ function Contacts() {
     console.log(contacts);
 
     return (
-        <table>
+        <Table>
             <thead>
                 <tr>
+                    <th>👤</th>
                     <th>Full Name</th>
-                    <th>Address</th>
-                    <th>Tags</th>
-                    <th>Last Event Date</th>
+                    <th className="hideMobile">Address 📍</th>
+                    <th>Tags 🏷️</th>
+                    <th>Last Event Date 🗓️</th>
                 </tr>
             </thead>
             <tbody>
                 {contacts.map(contact =>
                     <tr key={contact.id}>
+                        <td>{contact.avatar}</td>
                         <td>{contact.first_name} {contact.last_name}</td>
-                        <td>{contact.address}</td>
-                        <td>{contact.tags}</td>
-                        <td>{contact.events.start}</td>
+                        <td className="hideMobile">{contact.address}</td>
+                        <td className="hideMobile">{contact.tags}</td>
+                        <td className="hideMobile">{moment(contact.events.start).format("YYYY-MM-DD")}</td>
+                        <td className="showMobile">{moment(contact.events.start).format("YY-MM-DD")}</td>
                     </tr>
                 )}
             </tbody>
-        </table>
+        </Table>
     )
 }
 
