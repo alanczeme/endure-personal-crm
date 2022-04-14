@@ -1,9 +1,10 @@
-# README
+## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Personal CRM Project
 
-Things you may want to cover:
+Steps to get the application up and running.
+
+Things to cover:
 
 * Ruby version
 
