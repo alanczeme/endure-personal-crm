@@ -23,19 +23,19 @@ function Event() {
     console.log(moment().format("YYYY-MM-DDThh:mm a"));
 
     return (
-        <>
+        <div className="form-group row">
             <div>Details</div>
             <form>
                 <div>
-                    <label htmlFor="name">Title</label>
-                    <input id="name" type="text" />
+                    <label htmlFor="name" className="col-sm-2 col-form-label">Title</label>
+                    <input id="name" type="text" className="col-sm-8 col-form-input" placeholder={event.title} />
                 </div>
                 <div>
-                    <label htmlFor="description">Description</label>
-                    <input id="description" type="description" />
+                    <label htmlFor="description" className="col-sm-2 col-form-label">Description</label>
+                    <textarea id="description" type="description" className="col-sm-8 col-form-input" placeholder={event.description} />
                 </div>
                 <div>
-                    <label htmlFor="start">Start:</label>
+                    <label htmlFor="start" className="col-sm-2 col-form-label">Start:</label>
                     <input
                         type="datetime-local"
                         id="start"
@@ -48,7 +48,7 @@ function Event() {
                 </div>
                 <span> to </span>
                 <div>
-                    <label htmlFor="end">End:</label>
+                    <label htmlFor="end" className="col-sm-2 col-form-label">End:</label>
                     <input
                         type="datetime-local"
                         id="end"
@@ -61,12 +61,12 @@ function Event() {
                     </input>
                 </div>
                 <div>
-                    <label htmlFor="message">Message</label>
-                    <textarea id="message" />
+                    <label htmlFor="notes">Notes</label>
+                    <textarea id="notes" className="col-sm-8 col-form-input" placeholder={event.title} />
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit">Save Changes</button>
             </form>
-        </>
+        </div>
 
     )
 }
