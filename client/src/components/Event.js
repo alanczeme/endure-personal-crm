@@ -6,7 +6,9 @@ import moment from 'moment';
 function Event() {
     const { id } = useParams();
 
-    const [event, setEvent] = useState([]);
+    // Fetch "event" from the client-side route id to pre-fill defaultValue data in form
+    const [event, setEvent] = useState({});
+    // const [updatedEvent, setUpdatedEvent] = useState({});
 
     async function fetchEvents() {
         await axios.get(`/events/${id}`)
@@ -18,6 +20,18 @@ function Event() {
     useEffect(() => {
         fetchEvents();
     }, []);
+
+    // function updateEvent(updatedEvent) {
+    //     axios.patch({
+    //         url: `/events/${id}`,
+    //         data: {
+    //             event: updatedEvent
+    //         }
+    //     })
+    //     .then((r) => {
+    //         setEvent(r.data)
+    //     });
+    // }
 
     // console.log(event);
     // console.log(moment(event.end, "yyyy-MM-DDTHH:mm").format("yyyy-MM-DDTHH:mm"));
@@ -44,8 +58,7 @@ function Event() {
                         defaultValue={moment().format("yyyy-MM-DDTHH:mm")}
                         // min="2018-01-01"
                         // max="2018-12-31"
-                        >
-                    </input>
+                    />
                 </div>
                 <span> to </span>
                 <div>
@@ -57,8 +70,11 @@ function Event() {
                         // defaultValue={moment().add(1,'hours').format("YYYY-MM-DDTHH:mm")}
                         // defaultValue={event.end}
                         defaultValue={moment(event.end, "yyyy-MM-DDTHH:mm").format("yyyy-MM-DDTHH:mm")}
-                        >
-                    </input>
+                    />
+                </div>
+                <div className="row">
+                    <label htmlFor="location" className="col-sm-2 col-form-label">Location</label>
+                    <input id="location" type="text" className="col-sm-8 col-form-input" defaultValue={event.location} placeholder="Enter Location and/or Address" />
                 </div>
                 <div className="row">
                     <label htmlFor="notes" className="col-sm-2 col-form-label">Notes</label>
