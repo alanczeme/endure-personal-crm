@@ -7,8 +7,13 @@ function Event() {
     const { id } = useParams();
 
     // Fetch "event" from the client-side route id to pre-fill defaultValue data in form
-    const [event, setEvent] = useState({});
-    // const [updatedEvent, setUpdatedEvent] = useState({});
+    const [event, setEvent] = useState({
+        start: moment(),
+        end: moment(),
+    });
+    // const [updatedEvent, setUpdatedEvent] = useState({
+    //     title: event.title
+    // });
 
     async function fetchEvents() {
         await axios.get(`/events/${id}`)
@@ -20,6 +25,24 @@ function Event() {
     useEffect(() => {
         fetchEvents();
     }, []);
+
+    function convertDateToIso (d) { 
+        // shift datetime d -4 hours (-4GMT) (to ET time zone)
+        const shift = d.getTime() - 4 * 60 * 60 * 1000; 
+        // split the datetime, so that ".000Z" is the second element in the array, then grab the first element.
+        const time = new Date(shift).toISOString().split('.')[0];
+        return time;
+    }
+
+    function handleInputChange(e) {
+        const target = e.target;
+        const name = target.name;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+
+        setEvent({
+            [name]: target.type === 'datetime-local' ? value.slice(0, -1) : value
+        });
+    }
 
     // function updateEvent(updatedEvent) {
     //     axios.patch({
@@ -42,12 +65,18 @@ function Event() {
             <div>Details</div>
             <form>
                 <div className="row">
-                    <label htmlFor="name" className="col-sm-2 col-form-label">Title</label>
-                    <input id="name" type="text" className="col-sm-8 col-form-input" defaultValue={event.title} placeholder="Enter Event Name" />
+                    <label htmlFor="title" className="col-sm-2 col-form-label">Title</label>
+                    <input id="title" name="title" type="text" className="col-sm-8 col-form-input" placeholder="Enter Event Name" 
+                        value={event.title}
+                        onChange={handleInputChange} 
+                        />
                 </div>
                 <div className="row">
                     <label htmlFor="description" className="col-sm-2 col-form-label">Description</label>
-                    <textarea id="description" type="description" className="col-sm-8 col-form-input" defaultValue={event.description} />
+                    <textarea id="description" name="description" type="description" className="col-sm-8 col-form-input" 
+                        value={event.description} 
+                        onChange={handleInputChange} 
+                        />
                 </div>
                 <div>
                     <label htmlFor="start" className="col-sm-2 col-form-label">Start:</label>
@@ -55,10 +84,8 @@ function Event() {
                         type="datetime-local"
                         id="start"
                         name="start"
-                        defaultValue={moment().format("yyyy-MM-DDTHH:mm")}
-                        // min="2018-01-01"
-                        // max="2018-12-31"
-                    />
+                        value={convertDateToIso(new Date(event.start))}
+                        onChange={handleInputChange} />
                 </div>
                 <span> to </span>
                 <div>
@@ -67,18 +94,18 @@ function Event() {
                         type="datetime-local"
                         id="end"
                         name="end"
-                        // defaultValue={moment().add(1,'hours').format("YYYY-MM-DDTHH:mm")}
-                        // defaultValue={event.end}
-                        defaultValue={moment(event.end, "yyyy-MM-DDTHH:mm").format("yyyy-MM-DDTHH:mm")}
-                    />
+                        value={convertDateToIso(new Date(event.end))}
+                        onChange={handleInputChange} />
                 </div>
                 <div className="row">
                     <label htmlFor="location" className="col-sm-2 col-form-label">Location</label>
-                    <input id="location" type="text" className="col-sm-8 col-form-input" defaultValue={event.location} placeholder="Enter Location and/or Address" />
+                    <input id="location" name="location" type="text" className="col-sm-8 col-form-input" defaultValue={event.location} placeholder="Enter Location and/or Address"
+                        value={event.location}
+                        onChange={handleInputChange} />
                 </div>
                 <div className="row">
                     <label htmlFor="notes" className="col-sm-2 col-form-label">Notes</label>
-                    <textarea id="notes" className="col-sm-8 col-form-input" defaultValue={event.notes} />
+                    <textarea id="notes" name="notes" className="col-sm-8 col-form-input" defaultValue={event.notes} value={event.notes} onChange={handleInputChange} />
                 </div>
 
                 <div className="col-md-12 text-center">
