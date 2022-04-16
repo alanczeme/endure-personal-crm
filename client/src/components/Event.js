@@ -6,14 +6,14 @@ import moment from 'moment';
 function Event() {
     const { id } = useParams();
 
-    // Fetch "event" from the client-side route id to pre-fill defaultValue data in form
     const [event, setEvent] = useState({
-        start: moment(),
-        end: moment(),
+        title: '',
+        description: '',
+        start: moment(new Date),
+        end: moment(new Date),
+        location: '',
+        notes: ''
     });
-    // const [updatedEvent, setUpdatedEvent] = useState({
-    //     title: event.title
-    // });
 
     async function fetchEvents() {
         await axios.get(`/events/${id}`)
@@ -22,6 +22,7 @@ function Event() {
         });
     }
 
+    // Fetch "event" from the client-side route id to pre-fill default value data in form
     useEffect(() => {
         fetchEvents();
     }, []);
@@ -40,30 +41,35 @@ function Event() {
         const value = target.type === 'checkbox' ? target.checked : target.value;
 
         setEvent({
+            ...event,
             [name]: target.type === 'datetime-local' ? value.slice(0, -1) : value
         });
     }
 
-    // function updateEvent(updatedEvent) {
-    //     axios.patch({
-    //         url: `/events/${id}`,
-    //         data: {
-    //             event: updatedEvent
-    //         }
-    //     })
-    //     .then((r) => {
-    //         setEvent(r.data)
-    //     });
-    // }
+    function handleSubmit(e) {
+        e.preventDefault();
+        axios.patch({
+            url: `http://localhost:3000/events/${id}`,
+            data: {
+                title: event.title,
+                description: event.description,
+                start: event.start,
+                end: event.end,
+                location: event.location,
+                notes: event.notes
+            },
+            headers: ['Content-Type'] //application/json;charset=utf-8
+        });
+    }
 
-    // console.log(event);
+    console.log(event);
     // console.log(moment(event.end, "yyyy-MM-DDTHH:mm").format("yyyy-MM-DDTHH:mm"));
 
 
     return (
         <div className="form-group row">
             <div>Details</div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="row">
                     <label htmlFor="title" className="col-sm-2 col-form-label">Title</label>
                     <input id="title" name="title" type="text" className="col-sm-8 col-form-input" placeholder="Enter Event Name" 
@@ -99,13 +105,13 @@ function Event() {
                 </div>
                 <div className="row">
                     <label htmlFor="location" className="col-sm-2 col-form-label">Location</label>
-                    <input id="location" name="location" type="text" className="col-sm-8 col-form-input" defaultValue={event.location} placeholder="Enter Location and/or Address"
+                    <input id="location" name="location" type="text" className="col-sm-8 col-form-input" placeholder="Enter Location and/or Address"
                         value={event.location}
                         onChange={handleInputChange} />
                 </div>
                 <div className="row">
                     <label htmlFor="notes" className="col-sm-2 col-form-label">Notes</label>
-                    <textarea id="notes" name="notes" className="col-sm-8 col-form-input" defaultValue={event.notes} value={event.notes} onChange={handleInputChange} />
+                    <textarea id="notes" name="notes" className="col-sm-8 col-form-input" value={event.notes} onChange={handleInputChange} />
                 </div>
 
                 <div className="col-md-12 text-center">
