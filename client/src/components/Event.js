@@ -48,23 +48,17 @@ function Event() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        axios.patch({
-            url: `http://localhost:3000/events/${id}`,
-            data: {
+        axios.patch(`/api/events/${id}`,
+            {
                 title: event.title,
                 description: event.description,
                 start: event.start,
                 end: event.end,
                 location: event.location,
                 notes: event.notes
-            },
-            headers: ['Content-Type'] //application/json;charset=utf-8
-        });
+            }
+        );
     }
-
-    console.log(event);
-    // console.log(moment(event.end, "yyyy-MM-DDTHH:mm").format("yyyy-MM-DDTHH:mm"));
-
 
     return (
         <div className="form-group row">
