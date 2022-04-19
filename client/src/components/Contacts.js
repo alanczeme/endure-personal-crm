@@ -7,7 +7,7 @@ function Contacts() {
     const [contacts, setContacts] = useState([]);
 
     async function fetchContacts() {
-        await axios.get("/contacts")
+        await axios.get("/api/contacts")
         .then((r) => {
             setContacts(r.data)
         });

@@ -42,10 +42,10 @@ n_events.times do
 
 
     if Event.count == 0 
-        Event.create(user_id: 1, title: title, description: nil, start: startdatetime, end: enddatetime, tags: nil, location: address, notes: nil)
+        Event.create(user_id: 1, title: title, description: "", start: startdatetime, end: enddatetime, tags: nil, location: address, notes: "")
     else 
         duplicate = Event.select {|a| a.title == title}
-        duplicate == [] ? Event.create(user_id: 1, title: title, description: nil, start: startdatetime, end: enddatetime, tags: nil, location: address, notes: nil) : nil
+        duplicate == [] ? Event.create(user_id: 1, title: title, description: "", start: startdatetime, end: enddatetime, tags: nil, location: address, notes: "") : nil
     end
 end
 
