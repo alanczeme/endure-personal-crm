@@ -23,20 +23,20 @@ function Contacts() {
         <Table>
             <thead>
                 <tr>
-                    <th>👤</th>
+                    {/* <th>👤</th> */}
                     <th>Full Name</th>
                     <th className="hideMobile">Address 📍</th>
-                    <th>Tags 🏷️</th>
-                    <th>Last Event Date 🗓️</th>
+                    <th>Birthday 🎂</th>
+                    <th>Latest Event Date 🗓️</th>
                 </tr>
             </thead>
             <tbody>
                 {contacts.map(contact =>
                     <tr key={contact.id}>
-                        <td>{contact.avatar}</td>
+                        {/* <td>{contact.avatar}</td> */}
                         <td>{contact.first_name} {contact.last_name}</td>
                         <td className="hideMobile">{contact.address}</td>
-                        <td className="hideMobile">{contact.tags}</td>
+                        <td>{contact.birthday}</td>
                         <td className="hideMobile">{moment(contact.events.start).format("YYYY-MM-DD")}</td>
                         <td className="showMobile">{moment(contact.events.start).format("YY-MM-DD")}</td>
                     </tr>

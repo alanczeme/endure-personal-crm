@@ -3,7 +3,19 @@ class Api::ContactsController < ApplicationController
         render json: Contact.all
     end
 
+    def show
+        contact = find_contact
+        render json: contact, status: :ok
+    end
+
     def latest_event
         render json: Event.all.order(:start).last
     end
+
+    private
+
+    def find_contact
+        Contact.find(params[:id])
+    end
+
 end
