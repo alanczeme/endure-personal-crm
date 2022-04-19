@@ -53,15 +53,15 @@ function Contact() {
                 first_name: contact.first_name,
                 last_name: contact.last_name,
                 address: contact.address,
-                birthday: contact.birthday,
-                latest_event: ""
+                birthday: contact.birthday
             }
         );
     }
 
+    console.log(contact);
+
     return (
         <div className="form-group row">
-            <div>Details</div>
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <label htmlFor="firstname" className="col-sm-2 col-form-label">First Name</label>
@@ -78,29 +78,29 @@ function Contact() {
                         />
                 </div>
                 <div className="row">
-                    <label htmlFor="address" className="col-sm-2 col-form-label">Description</label>
+                    <label htmlFor="address" className="col-sm-2 col-form-label">Address</label>
                     <input id="address" name="address" type="text" className="col-sm-8 col-form-input" placeholder="Enter Location and/or Address"
-                        value={contact.description} 
+                        value={contact.address} 
                         onChange={handleInputChange} 
                         />
                 </div>
                 <div>
                     <label htmlFor="birthday" className="col-sm-2 col-form-label">Birthday</label>
                     <input
-                        type="datetime-local"
+                        type="date"
                         id="birthday"
                         name="birthday"
-                        value={convertDateToIso(new Date(contact.birthday))}
+                        value={contact.birthday}
                         onChange={handleInputChange} />
                 </div>
                 <div>
-                    <label htmlFor="latestEvent" className="col-sm-2 col-form-label">Birthday</label>
+                    <label htmlFor="latestEvent" className="col-sm-2 col-form-label">Latest Event</label>
                     <input
-                        type="datetime-local"
+                        type="text"
                         id="latestEvent"
                         name="latestEvent"
-                        value={convertDateToIso(new Date(contact.latest_event))}
-                        onChange={handleInputChange} />
+                        value={contact.latest_event}
+                        readOnly />
                 </div>
 
                 <div className="col-md-12 text-center">

@@ -62,7 +62,6 @@ function Event() {
 
     return (
         <div className="form-group row">
-            <div>Details</div>
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <label htmlFor="title" className="col-sm-2 col-form-label">Title</label>
