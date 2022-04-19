@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # namespace :api do
+  namespace :api do
     resources :contactevents
     resources :contacts
     resources :events
@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     get '*path',
     to: 'fallback#index',
     constraints: ->(req) { !req.xhr? && req.format.html? }
-  # end
+  end
 end

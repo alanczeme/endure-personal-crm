@@ -7,7 +7,7 @@ function Events() {
     const [events, setEvents] = useState([]);
 
     async function fetchEvents() {
-        await axios.get("/events")
+        await axios.get("/api/events")
         .then((r) => {
             setEvents(r.data)
         });

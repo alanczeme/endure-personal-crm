@@ -1,4 +1,4 @@
-class ContactsController < ApplicationController
+class Api::ContactsController < ApplicationController
     def index
         render json: Contact.all
     end

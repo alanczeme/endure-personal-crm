@@ -16,7 +16,7 @@ function Event() {
     });
 
     async function fetchEvents() {
-        await axios.get(`/events/${id}`)
+        await axios.get(`/api/events/${id}`)
         .then((r) => {
             setEvent(r.data)
         });
