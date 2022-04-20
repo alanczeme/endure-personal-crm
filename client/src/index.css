@@ -1,6 +1,9 @@
 * {
   margin: 0;
   padding: 0;
+  /* background-color: #37559d; */
+  background-image: -moz-linear-gradient(top, #31b697 0);
+  background-image: -webkit-gradient(linear, left top, left bottom);
 }
 
 .showMobile {
@@ -27,10 +30,6 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-h1 {
-  text-align: center;
 }
 
 table {
@@ -72,4 +71,21 @@ td > a:first-child {
   /* &:focus {
     outline: 0;
   } */
+}
+
+.full-page-container {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form-container {
+  padding:0 25%;
+  /* width: 90vw; */
+  border: 0.5px solid black;
+}
+
+.contact-form-container h1 {
+  text-align: center;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
 }

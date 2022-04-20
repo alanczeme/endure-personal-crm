@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import moment from 'moment';
 
 function Contact() {
     const { id } = useParams();
@@ -25,15 +24,6 @@ function Contact() {
     useEffect(() => {
         fetchContact();
     }, []);
-
-    // Function needed for a date format that the HTML form can use (i.e. remove the final Z, while updating timezone).
-    function convertDateToIso (d) { 
-        // shift datetime d -4 hours (-4GMT) (to ET time zone)
-        const shift = d.getTime() - 4 * 60 * 60 * 1000; 
-        // split the datetime, so that ."000Z" is the second element in the array, then grab the first element.
-        const time = new Date(shift).toISOString().split('.')[0];
-        return time;
-    }
 
     function handleInputChange(e) {
         const target = e.target;
@@ -71,14 +61,14 @@ function Contact() {
             <form onSubmit={handleSubmit}>
                 <div className="row">
                     <label htmlFor="firstname" className="col-sm-2 col-form-label">First Name</label>
-                    <input id="firstname" name="firstname" type="text" className="col-sm-8 col-form-input" placeholder="Enter First Name" 
+                    <input id="firstname" name="first_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter First Name" 
                         value={contact.first_name}
                         onChange={handleInputChange} 
                         />
                 </div>
                 <div className="row">
                     <label htmlFor="lastname" className="col-sm-2 col-form-label">Last Name</label>
-                    <input id="lastname" name="lastname" type="text" className="col-sm-8 col-form-input" placeholder="Enter Last Name" 
+                    <input id="lastname" name="last_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter Last Name" 
                         value={contact.last_name}
                         onChange={handleInputChange} 
                         />
