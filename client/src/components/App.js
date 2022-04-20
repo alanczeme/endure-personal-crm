@@ -26,7 +26,6 @@ function App() {
             <Contacts />
           </Route>
           <Route path="/contact/:id">
-            <h1>Single Contact</h1>
             <Contact />
           </Route>
           <Route exact path="/">

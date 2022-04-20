@@ -29,10 +29,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-h1 {
-  text-align: center;
-}
-
 table {
   border-collapse: collapse;
   align-items: center;
@@ -72,4 +68,20 @@ td > a:first-child {
   /* &:focus {
     outline: 0;
   } */
+}
+
+.full-page-container {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form-container {
+  padding:0 25%;
+  /* width: 90vw; */
+}
+
+.contact-form-container h1 {
+  text-align: center;
+  margin-top: 2vw;
+  margin-bottom: 2vw;
 }
