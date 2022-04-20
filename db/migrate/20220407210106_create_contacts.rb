@@ -7,6 +7,9 @@ class CreateContacts < ActiveRecord::Migration[7.0]
       t.string :avatar
       t.string :address
       t.string :tags
+      t.string :gender
+      t.date :birthday
+      t.string :email
 
       t.timestamps
     end
