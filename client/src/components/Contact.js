@@ -13,12 +13,12 @@ function Contact() {
         birthday: '',
         latest_event: ''
     });
+    const [latestContactEvent, setLatestContactEvent] = useState("")
 
     async function fetchContact() {
-        await axios.get(`/api/contacts/${id}`)
-        .then((r) => {
-            setContact(r.data)
-        });
+        const fetchedContact = await axios.get(`/api/contacts/${id}`)
+        setContact(fetchedContact.data);
+        setLatestContactEvent(fetchedContact.data.events[0].start);
     }
 
     // Fetch "contact" from the client-side route id to pre-fill default value data in form
@@ -58,7 +58,13 @@ function Contact() {
         );
     }
 
-    console.log(contact);
+    /* Why does this work:
+        // console.log(latestContactEvent.start);
+    While this doesn't?
+        // console.log(contact.events[0].start);    */
+
+    // console.log(latestEvent);
+    // console.log(latestContactEvent.split('T')[0]);
 
     return (
         <div className="form-group row">
@@ -96,11 +102,11 @@ function Contact() {
                 <div>
                     <label htmlFor="latestEvent" className="col-sm-2 col-form-label">Latest Event</label>
                     <input
-                        type="text"
+                        type="date"
                         id="latestEvent"
                         name="latestEvent"
-                        value={contact.latest_event}
-                        readOnly />
+                        value={latestContactEvent.split('T')[0]}
+                        disabled={true} />
                 </div>
 
                 <div className="col-md-12 text-center">

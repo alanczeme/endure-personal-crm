@@ -8,10 +8,6 @@ class Api::ContactsController < ApplicationController
         render json: contact, status: :ok
     end
 
-    def latest_event
-        render json: Event.all.order(:start).last
-    end
-
     private
 
     def find_contact

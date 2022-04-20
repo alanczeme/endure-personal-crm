@@ -4,8 +4,7 @@ Rails.application.routes.draw do
     resources :contacts
     resources :events
     resources :users
-    # route to test your configuration
-    get '/hello', to: 'application#hello_world'
+    # custom routes
     
     get '*path',
     to: 'fallback#index',
