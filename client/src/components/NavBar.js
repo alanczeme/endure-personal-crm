@@ -1,12 +1,12 @@
 import React from 'react'
 import { Navbar, Nav, Container, NavItem, NavDropdown, Accordion } from 'react-bootstrap';
+import logo from '../assets/logo_prm.png';
 
 function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">LOGO</Navbar.Brand>
-  
+        <Navbar.Brand href="/"><img src={logo} width="100"/></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav " />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

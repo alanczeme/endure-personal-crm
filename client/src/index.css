@@ -20,6 +20,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  margin-top: 20px;
+  color: #37559d;
 }
 
 code {
@@ -31,6 +34,7 @@ h1 {
 }
 
 table {
+  border-collapse: collapse;
   align-items: center;
   min-width: 250px;
   border: 1px solid #000;
@@ -39,9 +43,33 @@ table {
 td {
   width: 100vh;
   vertical-align: middle;
+
+  border: 2px solid #ccd2ff;
+  position: relative;
 }
 
 .form-container {
   text-align: center;
 
+}
+
+a {
+  color: #5165ff;
+}
+
+tr:hover,
+tr:focus-within {
+  background: #f2f3ff;
+  outline: none;
+}
+
+td > a:first-child {
+  display: flex;
+  padding: 18px;
+  text-decoration: none;
+  color: inherit;
+  z-index: 0;
+  /* &:focus {
+    outline: 0;
+  } */
 }
