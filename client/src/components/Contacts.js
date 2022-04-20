@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from "react-router-dom";
 import axios from 'axios';
 import { Table } from 'react-bootstrap';
 import moment from 'moment';
@@ -33,12 +34,11 @@ function Contacts() {
             <tbody>
                 {contacts.map(contact =>
                     <tr key={contact.id}>
-                        {/* <td>{contact.avatar}</td> */}
-                        <td>{contact.first_name} {contact.last_name}</td>
-                        <td className="hideMobile">{contact.address}</td>
-                        <td>{contact.birthday}</td>
-                        <td className="hideMobile">{moment(contact.events.start).format("YYYY-MM-DD")}</td>
-                        <td className="showMobile">{moment(contact.events.start).format("YY-MM-DD")}</td>
+                        <td><a href={"/contact/"+contact.id} className="row-link">{contact.first_name} {contact.last_name}</a></td>
+                        <td className="hideMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{contact.address}}</a></td>
+                        <td><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{contact.birthday}}</a></td>
+                        <td className="hideMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{moment(contact.events.start).format("YYYY-MM-DD")}}</a></td>
+                        <td className="showMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{moment(contact.events.start).format("YY-MM-DD")}}</a></td>
                     </tr>
                 )}
             </tbody>
