@@ -14,6 +14,7 @@ function Event() {
         location: '',
         notes: ''
     });
+    const [isChanged, setIsChanged] = useState(false);
 
     async function fetchEvents() {
         await axios.get(`/api/events/${id}`)
@@ -25,9 +26,9 @@ function Event() {
     // Fetch "event" from the client-side route id to pre-fill default value data in form
     useEffect(() => {
         fetchEvents();
-    }, []);
+    }, [isChanged]);
 
-    function convertDateToIso (d) { 
+    function convertDateToIso(d) { 
         // shift datetime d -4 hours (-4GMT) (to ET time zone)
         const shift = d.getTime() - 4 * 60 * 60 * 1000; 
         // split the datetime, so that ".000Z" is the second element in the array, then grab the first element.
@@ -39,10 +40,11 @@ function Event() {
         const target = e.target;
         const name = target.name;
         const value = target.type === 'checkbox' ? target.checked : target.value;
+        // setIsChanged(!isChanged);
 
         setEvent({
             ...event,
-            [name]: target.type === 'datetime-local' ? value.slice(0, -1) : value
+            [name]: target.type === 'datetime-local' ? new Date(value) : value
         });
     }
 
@@ -59,6 +61,8 @@ function Event() {
             }
         );
     }
+
+    console.log(event)
 
     return (
         <div className="form-group row">

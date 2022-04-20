@@ -6,6 +6,7 @@ import Events from './Events';
 import Contacts from './Contacts';
 import Event from './Event';
 import Contact from './Contact';
+import Home from './Home';
 
 function App() {
   return (
@@ -29,8 +30,7 @@ function App() {
             <Contact />
           </Route>
           <Route exact path="/">
-            {/* <h1>ENDURE</h1> */}
-            <h1>Your Personal CRM</h1>
+            <Home />
           </Route>
         </Switch>
       </div>
