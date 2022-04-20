@@ -35,10 +35,10 @@ function Contacts() {
                 {contacts.map(contact =>
                     <tr key={contact.id}>
                         <td><a href={"/contact/"+contact.id} className="row-link">{contact.first_name} {contact.last_name}</a></td>
-                        <td className="hideMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{contact.address}}</a></td>
-                        <td><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{contact.birthday}}</a></td>
-                        <td className="hideMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{moment(contact.events.start).format("YYYY-MM-DD")}}</a></td>
-                        <td className="showMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{moment(contact.events.start).format("YY-MM-DD")}}</a></td>
+                        <td className="hideMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{contact.address}</a></td>
+                        <td><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{contact.birthday}</a></td>
+                        <td className="hideMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{moment(contact.events.start).format("YYYY-MM-DD")}</a></td>
+                        <td className="showMobile"><a href={"/contact/"+contact.id} className="row-link" tabIndex="-1">{moment(contact.events.start).format("YY-MM-DD")}</a></td>
                     </tr>
                 )}
             </tbody>
