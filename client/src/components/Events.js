@@ -26,8 +26,8 @@ function Events() {
                     <tr>
                         <th>Title</th>
                         <th className="hideMobile">Location 📍</th>
+                        {/* <th>Tags 🏷️</th> */}
                         <th>Event Date 🗓️</th>
-                        <th>Tags 🏷️</th>
                         <th>Notes 📝</th>
                     </tr>
                 </thead>
@@ -35,11 +35,11 @@ function Events() {
                     {events.map(event =>
                         <tr key={event.id}>
                             <td>{event.title}</td>
-                            <td className="hideMobile">{event.location}</td>
-                            <td className="hideMobile">{event.tags}</td>
-                            <td className="hideMobile">{moment(event.start).format("YYYY-MM-DD")}</td>
-                            <td className="showMobile">{moment(event.start).format("YY-MM-DD")}</td>
-                            <td>{event.notes}</td>
+                            <td className="hideMobile"><a href={"/event/"+event.id} className="row-link">{event.location}</a></td>
+                            {/* <td className="hideMobile"><a href={"/event/"+event.id} className="row-link" tabIndex="-1">{event.tags}</a></td> */}
+                            <td className="hideMobile"><a href={"/event/"+event.id} className="row-link" tabIndex="-1">{moment(event.start).format("YYYY-MM-DD")}</a></td>
+                            <td className="showMobile"><a href={"/event/"+event.id} className="row-link" tabIndex="-1">{moment(event.start).format("YY-MM-DD")}</a></td>
+                            <td><a href={"/event/"+event.id} className="row-link" tabIndex="-1">{event.notes}</a></td>
                         </tr>
                     )}
                 </tbody>
