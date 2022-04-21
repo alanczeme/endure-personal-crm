@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
 
 function Contact() {
     const { id } = useParams();
@@ -63,28 +64,28 @@ function Contact() {
                 <form onSubmit={handleSubmit}>
                     <div className="">
                         <label htmlFor="firstname" className="form-text-label">First Name</label>
-                        <input id="firstname" name="first_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter First Name" 
+                        <Form.Control id="firstname" name="first_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter First Name" 
                             value={contact.first_name}
                             onChange={handleInputChange} 
                             />
                     </div>
                     <div className="">
                         <label htmlFor="lastname" className="form-text-label">Last Name</label>
-                        <input id="lastname" name="last_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter Last Name" 
+                        <Form.Control id="lastname" name="last_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter Last Name" 
                             value={contact.last_name}
                             onChange={handleInputChange} 
                             />
                     </div>
                     <div className="">
                         <label htmlFor="address" className="form-text-label">Address</label>
-                        <input id="address" name="address" type="text" className="col-sm-8 col-form-input" placeholder="Enter Location and/or Address"
+                        <Form.Control id="address" name="address" type="text" className="col-sm-8 col-form-input" placeholder="Enter Location and/or Address"
                             value={contact.address} 
                             onChange={handleInputChange} 
                             />
                     </div>
                     <div>
                         <label htmlFor="birthday" className="form-text-label">Birthday</label>
-                        <input
+                        <Form.Control
                             type="date"
                             id="birthday"
                             name="birthday"
@@ -93,7 +94,7 @@ function Contact() {
                     </div>
                     <div>
                         <label htmlFor="latestEvent" className="form-text-label">Latest Event</label>
-                        <input
+                        <Form.Control
                             type="date"
                             id="latestEvent"
                             name="latestEvent"

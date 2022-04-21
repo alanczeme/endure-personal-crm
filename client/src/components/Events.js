@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Table } from 'react-bootstrap';
 import moment from 'moment';
@@ -34,12 +35,21 @@ function Events() {
                 <tbody>
                     {events.map(event =>
                         <tr key={event.id}>
-                            <td>{event.title}</td>
-                            <td className="hideMobile"><a href={"/event/"+event.id} className="row-link">{event.location}</a></td>
-                            {/* <td className="hideMobile"><a href={"/event/"+event.id} className="row-link" tabIndex="-1">{event.tags}</a></td> */}
-                            <td className="hideMobile"><a href={"/event/"+event.id} className="row-link" tabIndex="-1">{moment(event.start).format("YYYY-MM-DD")}</a></td>
-                            <td className="showMobile"><a href={"/event/"+event.id} className="row-link" tabIndex="-1">{moment(event.start).format("YY-MM-DD")}</a></td>
-                            <td><a href={"/event/"+event.id} className="row-link" tabIndex="-1">{event.notes}</a></td>
+                            <td>
+                                <Link to={"/event/"+event.id} className="row-link">{event.title}</Link>
+                            </td>
+                            <td className="hideMobile">
+                                <Link to={"/event/"+event.id} className="row-link" tabIndex="-1">{event.location}</Link>
+                            </td>
+                            <td className="hideMobile">
+                                <Link to={"/event/"+event.id} className="row-link" tabIndex="-1">{moment(event.start).format("YYYY-MM-DD")}</Link>
+                            </td>
+                            <td className="showMobile">
+                                <Link to={"/event/"+event.id} className="row-link" tabIndex="-1">{moment(event.start).format("YY-MM-DD")}</Link>
+                            </td>
+                            <td>
+                                <Link to={"/event/"+event.id} className="row-link" tabIndex="-1">{event.notes}</Link>
+                            </td>
                         </tr>
                     )}
                 </tbody>

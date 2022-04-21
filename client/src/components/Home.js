@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../assets/logo_prm.png'
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -12,10 +13,10 @@ function Home() {
         <div className="row text-center">
             <div className="landing-page-container">
                 <div className="landing-page-title col-6 contacts-background">
-                  <a href="/contact" className="landing-page-link">Contacts</a>
+                  <Link to="/contact" className="landing-page-link">Contacts</Link>
                 </div>
                 <div className="landing-page-title col-6 events-background">
-                  <a href="/event" className="landing-page-link">Events</a>
+                  <Link to="/event" className="landing-page-link">Events</Link>
                 </div>
             </div>
         </div>
