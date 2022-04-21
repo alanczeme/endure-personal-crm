@@ -23,7 +23,6 @@ function App() {
           </Route>
           <Route path="/event/:id">
             <NavBar />
-            <h1>Single Event</h1>
             <Event />
           </Route>
           <Route exact path="/contact">

@@ -11,8 +11,12 @@ function Home() {
         </div>
         <div className="row text-center">
             <div className="landing-page-container">
-                <div className="landing-page-title col-6"><a href="/contact" className="landing-page-link">Contacts</a></div>
-                <div className="landing-page-title col-6"><a href="/event" className="landing-page-link">Events</a></div>
+                <div className="landing-page-title col-6 contacts-background">
+                  <a href="/contact" className="landing-page-link">Contacts</a>
+                </div>
+                <div className="landing-page-title col-6 events-background">
+                  <a href="/event" className="landing-page-link">Events</a>
+                </div>
             </div>
         </div>
     </>

@@ -84,7 +84,7 @@ td > a:first-child {
   border: 0.5px solid black;
 }
 
-.contact-form-container h1 {
+h1 {
   text-align: center;
   margin-top: 2vw;
   margin-bottom: 2vw;
@@ -123,11 +123,28 @@ td > a:first-child {
 }
 
 .landing-page-title {
-  margin: 1vw;
   font-size: 6.0em;
+  height: 90vh;
 }
 
 .landing-page-link {
   text-decoration: none;
   color: black;
+  background-color: #ccd2ff;
+}
+
+.contacts-background {
+  background-image: url("./assets/users.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #37559d;
+}
+
+.events-background {
+  background-image: url("./assets/calendar.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #37559d;
 }
