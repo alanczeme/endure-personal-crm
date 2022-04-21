@@ -12,25 +12,27 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <NavBar />
         <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route exact path="/event">
+            <NavBar />
             <h1>Events</h1>
             <Events />
           </Route>
           <Route path="/event/:id">
-            <h1>Single Event</h1>
+            <NavBar />
             <Event />
           </Route>
           <Route exact path="/contact">
+            <NavBar />
             <h1>Contacts</h1>
             <Contacts />
           </Route>
           <Route path="/contact/:id">
+            <NavBar />
             <Contact />
-          </Route>
-          <Route exact path="/">
-            <Home />
           </Route>
         </Switch>
       </div>
