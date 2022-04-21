@@ -57,52 +57,55 @@ function Contact() {
     // console.log(latestContactEvent.split('T')[0]);
 
     return (
-        <div className="form-group row">
-            <form onSubmit={handleSubmit}>
-                <div className="row">
-                    <label htmlFor="firstname" className="col-sm-2 col-form-label">First Name</label>
-                    <input id="firstname" name="first_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter First Name" 
-                        value={contact.first_name}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div className="row">
-                    <label htmlFor="lastname" className="col-sm-2 col-form-label">Last Name</label>
-                    <input id="lastname" name="last_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter Last Name" 
-                        value={contact.last_name}
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div className="row">
-                    <label htmlFor="address" className="col-sm-2 col-form-label">Address</label>
-                    <input id="address" name="address" type="text" className="col-sm-8 col-form-input" placeholder="Enter Location and/or Address"
-                        value={contact.address} 
-                        onChange={handleInputChange} 
-                        />
-                </div>
-                <div>
-                    <label htmlFor="birthday" className="col-sm-2 col-form-label">Birthday</label>
-                    <input
-                        type="date"
-                        id="birthday"
-                        name="birthday"
-                        value={contact.birthday}
-                        onChange={handleInputChange} />
-                </div>
-                <div>
-                    <label htmlFor="latestEvent" className="col-sm-2 col-form-label">Latest Event</label>
-                    <input
-                        type="date"
-                        id="latestEvent"
-                        name="latestEvent"
-                        value={latestContactEvent.split('T')[0]}
-                        disabled={true} />
-                </div>
-
-                <div className="col-md-12 text-center">
-                    <button type="submit" className = "btn btn-primary">Save Changes</button>
-                </div>
-            </form>
+        <div className="contact-form-container">
+            <h1>Single Contact</h1>
+            <div className="">
+                <form onSubmit={handleSubmit}>
+                    <div className="">
+                        <label htmlFor="firstname" className="form-text-label">First Name</label>
+                        <input id="firstname" name="first_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter First Name" 
+                            value={contact.first_name}
+                            onChange={handleInputChange} 
+                            />
+                    </div>
+                    <div className="">
+                        <label htmlFor="lastname" className="form-text-label">Last Name</label>
+                        <input id="lastname" name="last_name" type="text" className="col-sm-8 col-form-input" placeholder="Enter Last Name" 
+                            value={contact.last_name}
+                            onChange={handleInputChange} 
+                            />
+                    </div>
+                    <div className="">
+                        <label htmlFor="address" className="form-text-label">Address</label>
+                        <input id="address" name="address" type="text" className="col-sm-8 col-form-input" placeholder="Enter Location and/or Address"
+                            value={contact.address} 
+                            onChange={handleInputChange} 
+                            />
+                    </div>
+                    <div>
+                        <label htmlFor="birthday" className="form-text-label">Birthday</label>
+                        <input
+                            type="date"
+                            id="birthday"
+                            name="birthday"
+                            value={contact.birthday}
+                            onChange={handleInputChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="latestEvent" className="form-text-label">Latest Event</label>
+                        <input
+                            type="date"
+                            id="latestEvent"
+                            name="latestEvent"
+                            value={latestContactEvent.split('T')[0]}
+                            disabled={true} />
+                    </div>
+    
+                    <div className="col-md-12 text-center">
+                        <button type="submit" className = "btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
         </div>
 
     )
