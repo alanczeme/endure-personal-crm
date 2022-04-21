@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import moment from 'moment';
+import Form from 'react-bootstrap/Form';
 
 function Event() {
     const { id } = useParams();
@@ -65,26 +66,27 @@ function Event() {
     console.log(event)
 
     return (
-        <div className="form-group row">
+        <div className="contact-form-container">
             <h1>Single Event</h1>
+            <div>
             <form onSubmit={handleSubmit}>
-                <div className="row">
+                <div className="">
                     <label htmlFor="title" className="col-sm-2 col-form-label">Title</label>
-                    <input id="title" name="title" type="text" className="col-sm-8 col-form-input" placeholder="Enter Event Name" 
+                    <Form.Control id="title" name="title" type="text" className="col-sm-8 col-form-input" placeholder="Enter Event Name" 
                         value={event.title}
                         onChange={handleInputChange} 
                         />
                 </div>
-                <div className="row">
+                <div className="">
                     <label htmlFor="description" className="col-sm-2 col-form-label">Description</label>
-                    <textarea id="description" name="description" type="description" className="col-sm-8 col-form-input" 
+                    <Form.Control id="description" name="description" type="description" className="col-sm-8 col-form-input" 
                         value={event.description} 
                         onChange={handleInputChange} 
                         />
                 </div>
                 <div>
                     <label htmlFor="start" className="col-sm-2 col-form-label">Start:</label>
-                    <input
+                    <Form.Control
                         type="datetime-local"
                         id="start"
                         name="start"
@@ -94,28 +96,29 @@ function Event() {
                 <span> to </span>
                 <div>
                     <label htmlFor="end" className="col-sm-2 col-form-label">End:</label>
-                    <input
+                    <Form.Control
                         type="datetime-local"
                         id="end"
                         name="end"
                         value={convertDateToIso(new Date(event.end))}
                         onChange={handleInputChange} />
                 </div>
-                <div className="row">
+                <div className="">
                     <label htmlFor="location" className="col-sm-2 col-form-label">Location</label>
-                    <input id="location" name="location" type="text" className="col-sm-8 col-form-input" placeholder="Enter Location and/or Address"
+                    <Form.Control id="location" name="location" type="text" className="col-sm-8 col-form-input" placeholder="Enter Location and/or Address"
                         value={event.location}
                         onChange={handleInputChange} />
                 </div>
-                <div className="row">
+                <div className="">
                     <label htmlFor="notes" className="col-sm-2 col-form-label">Notes</label>
-                    <textarea id="notes" name="notes" className="col-sm-8 col-form-input" value={event.notes} onChange={handleInputChange} />
+                    <Form.Text id="notes" name="notes" className="col-sm-8 col-form-input" value={event.notes} onChange={handleInputChange} />
                 </div>
 
                 <div className="col-md-12 text-center">
                     <button type="submit" className = "btn btn-primary">Save Changes</button>
                 </div>
             </form>
+            </div>
         </div>
 
     )
